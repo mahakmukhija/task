@@ -1,0 +1,14 @@
+ predict_house_price.py
+import joblib
+
+# Load the saved model
+model = joblib.load('house_price_model.pkl')
+
+# Define a function to predict house price
+def predict_price(area):
+    return model.predict([[area]])[0]
+
+# Test with example input
+area = 1200
+predicted_price = predict_price(area)
+print(f"Predicted price for {area} sq ft: ₹{predicted_price:.2f}")

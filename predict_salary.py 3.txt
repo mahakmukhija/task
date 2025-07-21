@@ -1,0 +1,14 @@
+# predict_salary.py 3
+import joblib
+
+# Load the saved model
+model = joblib.load('salary_model.pkl')
+
+# Define prediction function
+def predict_salary(years_of_exp):
+    return model.predict([[years_of_exp]])[0]
+
+# Call the function with example input
+exp = 5
+predicted_salary = predict_salary(exp)
+print(f"Predicted salary for {exp} years of experience: ₹{predicted_salary:.2f}")
